@@ -33,6 +33,7 @@
   },
   "name": "@revskill10/next-auth0",
   "author": "Dung Truong",
+  "repository": "git://github.com/revskill10/next-auth0.git",
   "module": "dist/next-auth0.esm.js",
   "devDependencies": {
     "@types/react": "^16.9.35",
