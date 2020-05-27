@@ -31,7 +31,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "next-auth0",
+  "name": "@revskill10/next-auth0",
   "author": "Dung Truong",
   "module": "dist/next-auth0.esm.js",
   "devDependencies": {
