@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import createAuth0Client from "@auth0/auth0-spa-js";
-import useLocalStorageState from 'use-local-storage-state'
-import Auth0Context from './Auth0Context'
+import React, { useState, useEffect } from 'react';
+import createAuth0Client from '@auth0/auth0-spa-js';
+import useLocalStorageState from 'use-local-storage-state';
+import Auth0Context from './Auth0Context';
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
 
@@ -10,7 +10,10 @@ const Auth0Provider = ({
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   ...initOptions
 }) => {
-  const [isAuthenticated, setIsAuthenticated] = useLocalStorageState('isAuthenticated', false);
+  const [isAuthenticated, setIsAuthenticated] = useLocalStorageState(
+    'isAuthenticated',
+    false
+  );
   const [user, setUser] = useLocalStorageState('user');
   const [token, setToken] = useLocalStorageState('token');
   const [auth0Client, setAuth0] = useState();
@@ -21,12 +24,14 @@ const Auth0Provider = ({
     const initAuth0 = async () => {
       const auth0FromHook = await createAuth0Client({
         ...initOptions,
-        cacheLocation: 'localstorage'
+        cacheLocation: 'localstorage',
       });
       setAuth0(auth0FromHook);
 
-      if (window.location.search.includes("code=") &&
-          window.location.search.includes("state=")) {
+      if (
+        window.location.search.includes('code=') &&
+        window.location.search.includes('state=')
+      ) {
         const { appState } = await auth0FromHook.handleRedirectCallback();
         onRedirectCallback(appState);
       }
@@ -39,9 +44,9 @@ const Auth0Provider = ({
         const user = await auth0FromHook.getUser();
         setUser(user);
       }
-      const idToken = await auth0FromHook.getIdTokenClaims()
+      const idToken = await auth0FromHook.getIdTokenClaims();
       if (idToken) {
-        setToken(idToken.__raw)
+        setToken(idToken.__raw);
       }
       setLoading(false);
     };
@@ -85,11 +90,11 @@ const Auth0Provider = ({
         loginWithRedirect: (...p) => auth0Client.loginWithRedirect(...p),
         getTokenSilently: (...p) => auth0Client.getTokenSilently(...p),
         getTokenWithPopup: (...p) => auth0Client.getTokenWithPopup(...p),
-        logout: (...p) => auth0Client.logout(...p)
+        logout: (...p) => auth0Client.logout(...p),
       }}
     >
       {children}
     </Auth0Context.Provider>
   );
 };
-export default Auth0Provider
+export default Auth0Provider;

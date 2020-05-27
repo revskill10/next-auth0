@@ -1,3 +1,3 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from 'react';
 const Auth0Context = React.createContext();
-export default Auth0Context
+export default Auth0Context;

@@ -47,9 +47,10 @@
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.8.2",
+    "next": "^9.4.2",
     "use-local-storage-state": "^3.0.1"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   }
 }
