@@ -31,7 +31,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "next-auth0",
+  "name": "@revskill10/next-auth0",
   "author": "Dung Truong",
   "repository": "git://github.com/revskill10/next-auth0.git",
   "module": "dist/next-auth0.esm.js",
@@ -50,6 +50,6 @@
     "use-local-storage-state": "^3.0.1"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/"
+    "registry":"https://npm.pkg.github.com"
   }
 }
