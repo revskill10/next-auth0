@@ -20,7 +20,7 @@ jobs:
           if [ "$LATEST" != "$CURRENT" ]
           then
             npm ci
-            npm publish
+            npm publish --access public
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
